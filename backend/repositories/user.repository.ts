@@ -10,7 +10,7 @@ export const userRepository = {
 		return db("user_functions").join("functions", "user_functions.function_id", "functions.id").where("user_functions.user_id", userId).select("functions.id", "functions.name");
 	},
 
-	searchInChannel: async (input: string, channelId: number): Promise<UserEntity[]> => {
+	searchUsersInChannel: async (input: string, channelId: number): Promise<UserEntity[]> => {
 		return db("users")
 			.distinct("users.*")
 			.join("user_functions", "users.id", "user_functions.user_id")

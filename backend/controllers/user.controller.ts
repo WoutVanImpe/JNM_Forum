@@ -53,7 +53,7 @@ export const userController = {
     }
   },
 
-  searchInChannel: async (req: Request, res: Response): Promise<void> => {
+  searchUsersInChannel: async (req: Request, res: Response): Promise<void> => {
     try {
       const channelId = Number(req.params.channelId);
       const query = String(req.query.q || "");
@@ -63,7 +63,7 @@ export const userController = {
         return;
       }
 
-      const users = await userService.searchInChannel(query, channelId);
+      const users = await userService.searchUsersInChannel(query, channelId);
       res.status(200).json(users);
     } catch (error) {
       res.status(400).json({ message: (error as Error).message || "Kon gebruikers niet vinden" });

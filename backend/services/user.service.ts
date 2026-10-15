@@ -16,8 +16,8 @@ export const userService = {
 		};
 	},
 
-	searchInChannel: async (input: string, channelId: number): Promise<UserEntity[]> => {
-		return userRepository.searchInChannel(input, channelId);
+	searchUsersInChannel: async (input: string, channelId: number): Promise<UserEntity[]> => {
+		return userRepository.searchUsersInChannel(input, channelId);
 	},
 
 	createUser: async (userData: CreateUserInput): Promise<UserEntity> => {
