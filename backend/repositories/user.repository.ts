@@ -1,9 +1,13 @@
 import { db } from "../config/knex";
-import { CreateUserInput, UpdateUserInput, UserEntity } from "../types";
+import { CreateUserInput, FunctionEntity, UpdateUserInput, UserEntity } from "../types";
 
 export const userRepository = {
 	findById: async (id: number): Promise<UserEntity | undefined> => {
 		return db("users").where({ id }).first();
+	},
+
+	findFunctionsByUserId: async (userId: number): Promise<FunctionEntity[]> => {
+		return db("user_functions").join("functions", "user_functions.function_id", "functions.id").where("user_functions.user_id", userId).select("functions.id", "functions.name");
 	},
 
 	searchInChannel: async (input: string, channelId: number): Promise<UserEntity[]> => {
