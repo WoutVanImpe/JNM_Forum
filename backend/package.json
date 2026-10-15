@@ -1,0 +1,35 @@
+{
+	"name": "backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.ts",
+	"scripts": {
+		"dev": "tsx watch app.ts",
+		"start": "tsx app.ts",
+		"build": "tsc",
+		"knex": "NODE_OPTIONS='--import tsx' knex --knexfile knexfile.ts",
+		"knex:migrate": "npm run knex -- migrate:latest",
+		"knex:rollback": "npm run knex -- migrate:rollback",
+		"knex:make-migration": "npm run knex -- migrate:make -x ts",
+		"knex:seed": "npm run knex -- seed:run",
+		"knex:make-seed": "npm run knex -- seed:make -x ts",
+		"setup": "npm run knex:migrate && npm run knex:seed"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"dependencies": {
+		"cors": "^2.8.6",
+		"express": "^5.3.0",
+		"knex": "^3.3.0",
+		"pg": "^8.23.1"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.19",
+		"@types/express": "^5.0.6",
+		"@types/node": "^26.6.5",
+		"tsx": "^4.23.15",
+		"typescript": "^7.0.2"
+	}
+}

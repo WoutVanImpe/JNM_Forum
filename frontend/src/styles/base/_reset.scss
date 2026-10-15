@@ -1,0 +1,61 @@
+// 1. Box sizing overal gelijk trekken
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// 2. Voorkom font-size inflation op mobiel
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+// 3. Verwijder standaard lijstopmaak
+ul,
+ol {
+  list-style: none;
+}
+
+// 4. Afbeeldingen en media responsief maken
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+// 5. Formulier elementen erven font en styles
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+// 6. Textarea resize beperken
+textarea {
+  resize: vertical;
+}
+
+// 7. Verwijder animaties voor gebruikers met 'prefers-reduced-motion'
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms ;
+    animation-iteration-count: 1 ;
+    transition-duration: 0.01ms ;
+    scroll-behavior: auto ;
+  }
+}

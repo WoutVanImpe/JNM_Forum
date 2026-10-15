@@ -1,0 +1,46 @@
+@use '../abstract' as *;
+
+body {
+  min-height: 100vh;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  background-color: $color-bg;
+  color: $color-text;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+}
+
+h1 { font-size: $font-size-2xl; }
+h2 { font-size: $font-size-xl; }
+h3 { font-size: $font-size-lg; }
+
+// Links
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+}
+
+// Knoppen reset basis
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+// Code snippets
+code, pre {
+  font-family: $font-family-mono;
+  font-size: $font-size-sm;
+}
