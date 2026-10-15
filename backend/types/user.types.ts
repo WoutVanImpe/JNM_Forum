@@ -19,3 +19,5 @@ export interface UserDTO extends UserEntity {
 }
 
 export type CreateUserInput = Omit<UserEntity, "id" | "created_at" | "updated_at">;
+
+export type UpdateUserInput = Partial<Omit<UserEntity, "id" | "name" | "profile_picture" | "auth0_id" | "created_at" | "updated_at">>;
